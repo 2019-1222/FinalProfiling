@@ -1,120 +1,229 @@
-package profiling;
+package Profiling;
 
 import java.util.Scanner;
 
+
 public class Profiling {
 
-    int max = 1000;
-    int index = 0;
-    int profilenumber = 1;
-    int deductor = 1000;
-
-    String[] names = new String[max];
-    String[] email = new String[max];
-    String[] password = new String[max];
-    String[] number = new String[max];
-    String[] age = new String[max];
-
-    Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Profiling name;
-        name = new Profiling();
-        name.Profile();
+        Scanner in = new Scanner(System.in);
+        
+           
+             int p=1000; 
+           int i = 0;
+           
+        
+        String[] names = new String[p];
+        String[] email = new String[p];
+        String[] password = new String[p];
+        String[] contact =new String[p];
+        int[] age = new int[p];
+      
+        
+       boolean profile=true;
+       pro:
+       while(profile){
+           System.out.println("-----------------------------------------------------------------------------------------");
+           System.out.println("Enter a profile to start.");
+           System.out.println("1. Continue Entering Profile");
+           System.out.println("2. Exit");
+           int t=in.nextInt();
+           switch (t){
+               
+               case 1: break;
+               
+               case 2: System.out.println("Thank you for the Support.");
+                   System.out.println("\n");
+                   System.out.println("Do wish to use the program?");
+                   System.out.println("1. Yes");
+                   System.out.println("2. No");
+                   String yn=in.next();
+                   switch(yn){
+                       case "1": continue pro;
+                       
+                       case "2": System.exit(0);
+                   }
+           }
+           
+          
+           boolean sit=true;
+       int u=1;
+        sit:
+           while(sit){
+        
+     
+       System.out.println("Enter necessary informations for profile # "+u);
+            System.out.print("Enter Name: ");
+            in.nextLine();
+            names [i]= in.nextLine();
+            
+            System.out.print("Enter Email: ");
+            email[i] = in.nextLine();
+            
+            System.out.print("Enter Password: ");
+            password[i] = in.nextLine();
+            
+            System.out.print("Enter Age: ");
+            age[i] = in.nextInt();
+            
+            System.out.print("Enter contact number: ");
+            contact[i]=in.nextLine();
+            in.nextLine();
+            i++;
+            
+       
+        
+               System.out.println("\n\n");
+               System.out.println("Do you wish to add more profiles?");
+               System.out.println("1. Add Profile ");
+               System.out.println("2. No ");
+               String add=in.next();
+               switch(add){
+                   case "1":  
+                             u++;
+                             
+                            
+                     continue sit;
+                   case "2": 
+                       System.out.println("---------------------------------------------------------------------------------");
+                     
+                   break;
+                   
+               }break;
+           
+           } System.out.println("\n\n");
+           boolean go=true;
+           choiced:
+           while(go){
+               System.out.println("------------------------------------------------------------------------------------------");
+           System.out.println("Which action do you want to do?");
+           System.out.println("1. Search profile.");
+           System.out.println("2. Edit profile.");
+           System.out.println("3. Add profile.");
+           
+           System.out.println("4. View all profiles.");
+               System.out.println("5.Exit.");
+           int w=in.nextInt();
+           switch(w){
+               case 1: 
+                   System.out.println("Enter the name you want to view");
+                   in.nextLine();
+                   String dd=in.nextLine();
+                   for(int que = 0 ;que< names.length;que++){
+                     
+                   if(dd.equals (names[que])){
+                       System.out.println("Names: "+names[que]);
+                       System.out.println("Email: "+email[que]);
+                       System.out.println("Age: "+age[que]);
+                       System.out.println("Contact Number: "+contact[que]);
+                       
+                    continue choiced;
+                       
+                   
+                   }
+                    
+                   
+               
+                   }System.out.println("Profile not found!");
+                   continue choiced;
+              
+               case 2:  int kits=0;    
+               for(int f=1; f<=i; f++){
+            System.out.println("Select " +kits+" to edit profile "+f+". "+names [kits]);
+           kits++;}
+               int ho=in.nextInt();
+                   
+                            System.out.println("Name: "+names [ho]); 
+                            System.out.println("Email: "+email [ho]);
+                            System.out.println("Password: "+password [ho]);
+                            System.out.println("Age: "+age [ho]);
+                            System.out.println("Contact: " + contact[ho]);
+                            System.out.println("---------------------------------------------------------------------------------");
+                   System.out.println("\n");
+                   System.out.println("Enter the following data for the chosen profile.");
+            System.out.print("Enter Name: ");
+            in.nextLine();
+            names [ho]= in.nextLine();
+            System.out.print("Enter Email: ");
+            email[ho] = in.nextLine();
+            System.out.print("Enter Password: ");
+            password[ho] = in.nextLine();
+            System.out.print("Enter Age: ");
+            age[ho] = in.nextInt();
+            System.out.print("Enter Contact Number: ");
+            in.nextLine();
+            contact[ho]=in.nextLine();
+                   System.out.println("You succesfully edited this profile.");
+                   continue choiced;
+                   
+               case 3:
+                   true1:
+                  while(true){
+                  
+                   u++;
+                   
+            System.out.println("");
+            System.out.println("Profile # "+u);
+            
+            System.out.print("Enter Name: ");
+            in.nextLine();
+            names [i]= in.nextLine();
+            System.out.print("Enter Email: ");
+            email[i] = in.nextLine();
+            System.out.print("Enter Password: ");
+            password[i] = in.nextLine();
+            System.out.print("Enter Age: ");
+            age[i] = in.nextInt();
+            System.out.print("Enter Contact Number: ");
+            in.nextLine();
+            contact[i]=in.nextLine();
+            i++;
+             System.out.println("\n\n");
+               System.out.println("Do you wish to add more?");
+               System.out.println("1. Add profile.");
+               System.out.println("2. No.");
+               String add=in.next();
+               switch(add){
+                   case "1":  
+                             u++;
+                             
+                    continue true1;
+                   case "2": 
+                       continue choiced;
+                  
+                   
+               }}
+               case 5:
+                   System.out.println("Thank you and God bless.");
+                   System.out.println("\n\n\n");
+                   System.out.println("Do wish to use the program?");
+                   System.out.println("1. Yes");
+                   System.out.println("2. No");
+                   String ans=in.next();
+                   switch(ans){
+                       case "1": continue pro;
+                       
+                       case "2": System.exit(0);
+                   
+               }
+               case 4: for(int nahh=0; nahh<u;nahh++){
+                   System.out.println("-------------------------------------------------------------------");
+                   System.out.println("Name: "+names[nahh]);
+                   System.out.println("Email: "+email[nahh]);
+                   System.out.println("Password: "+password[nahh]);
+                   System.out.println("Age: "+age[nahh]);
+                   System.out.println("Contact number: "+contact[nahh]);
+                   System.out.println("-------------------------------------------------------------------");
+              
+               }continue choiced;
+  
+           }
+
+       }
 
     }
-
-    public void Profile() {
-        Scanner sc = new Scanner(System.in);
-
-        boolean profile = true;
-        pro:
-        while (profile) {
-            System.out.println("Do you want to create a profile?");
-            System.out.println("1. Yes");
-            System.out.println("2. No");
-            int yeah = sc.nextInt();
-            if (yeah == 1) {
-                ProfileEnter();
-            } else if (yeah == 2) {
-                System.exit(0);
-            }
-
-        }
-
+       
     }
-
-    public void ProfileEnter() {
-        int profilenum = 1;
-        Continue:
-        while (true) {
-            System.out.println("-----------------------------");
-            System.out.println("Profile number " + profilenumber);
-            System.out.print("Enter your name: ");
-            names[index] = sc.next();
-            System.out.print("Enter your age: ");
-            age[index] = sc.next();
-            System.out.print("Enter your contact number: ");
-            number[index] = sc.next();
-            System.out.print("Enter your email address: ");
-            email[index] = sc.next();
-            System.out.print("Enter your password: ");
-            password[index] = sc.next();
-            profilenumber++;
-            index++;
-            deductor--;
-
-            boolean unsabuhaton = true;
-            buhaton:
-            while (unsabuhaton) {
-
-                System.out.println("-----------------------------");
-                System.out.println("What do you want to do next?");
-                System.out.println("1. Add another profile.");
-                System.out.println("2. Search profiles.");
-                System.out.println("3. View all profiles.");
-                System.out.println("4. Exit.");
-                int choice = sc.nextInt();
-                switch (choice) {
-                    case 1:
-                        continue Continue;
-                    case 2:
-                        System.out.println("Enter name!");
-                        sc.nextLine();
-                        String namessearch = sc.nextLine();
-
-                        for (int i = 0; i < names.length; i++) {
-
-                            if (namessearch.equals(names[i])) {
-                                while (namessearch.equals(names[i])) {
-                                    System.out.println("-----------------------------");
-                                    System.out.println("Name: " + names[i]);
-                                    System.out.println("Age: " + age[i]);
-                                    System.out.println("Email: " + email[i]);;
-                                    System.out.println("Number: " + number[i]);
-                                    System.out.println("-----------------------------");
-                                    continue buhaton;
-                                }
-                            }
-                        }
-                    case 3:
-                        for (int j = 0; j < names.length - deductor; j++) {
-                            System.out.println("-----------------------------");
-                            System.out.println("Profile No. " + profilenum++ + "\n");
-
-                            System.out.println("Name: " + names[j]);
-                            System.out.println("Age: " + age[j]);
-                            System.out.println("Email: " + email[j]);
-                            System.out.println("Password: " + number[j]);
-                            System.out.println("-----------------------------");
-                        }
-                        continue buhaton;
-                    case 4:
-                        System.exit(0);
-                }
-
-            }
-        }
-
-    }
+    
 }
